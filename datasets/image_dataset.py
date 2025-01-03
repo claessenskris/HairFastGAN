@@ -1,9 +1,9 @@
 import torch
 from torch.utils.data import Dataset
-
+from typing import Union
 
 class ImagesDataset(Dataset):
-    def __init__(self, images: dict[torch.Tensor, list[str]] | list[torch.Tensor]):
+    def __init__(self, images: Union[dict[torch.Tensor, list[str]], list[torch.Tensor]]):
         if isinstance(images, list):
             images = dict.fromkeys(images)
 
@@ -21,7 +21,6 @@ class ImagesDataset(Dataset):
 
         names = self.names[index]
         return image, names
-
 
 def image_collate(batch):
     images = torch.stack([item[0] for item in batch])
