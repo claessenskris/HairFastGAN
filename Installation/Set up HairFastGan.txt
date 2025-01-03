@@ -1,0 +1,22 @@
+sudo apt update
+sudo apt install git-lfs
+
+git clone https://github.com/claessenskris/HairFastGAN
+cd HairFastGAN
+
+git clone https://huggingface.co/AIRI-Institute/HairFastGAN
+cd HairFastGAN && git lfs pull && cd ..
+mv HairFastGAN/pretrained_models pretrained_models
+mv HairFastGAN/input input
+rm -rf HairFastGAN
+
+pip install addict
+pip install git+https://github.com/openai/CLIP.git
+
+sudo apt update
+sudo apt install ninja-build
+
+pip install dill
+pip install face-alignment
+pip install matplotlib
+pip install dlib
