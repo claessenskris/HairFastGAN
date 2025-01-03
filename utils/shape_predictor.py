@@ -11,6 +11,7 @@ from PIL import Image
 from torchvision import transforms as T
 
 from utils.drive import open_url
+from typing import Union
 
 """
 brief: face alignment with FFHQ method (https://github.com/NVlabs/ffhq-dataset)
@@ -46,7 +47,7 @@ def get_landmark(filepath, predictor):
     return lms
 
 
-def get_landmark_from_tensors(tensors: list[torch.Tensor | Image.Image | np.ndarray], predictor):
+def get_landmark_from_tensors(tensors: list[Union[torch.Tensor, Image.Image, np.ndarray]], predictor):
     detector = dlib.get_frontal_face_detector()
     transform = T.ToPILImage()
     images = []
