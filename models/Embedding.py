@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import torchvision.transforms as T
 from torch import nn
 from torch.utils.data import DataLoader
+from typing import Union
 
 from datasets.image_dataset import ImagesDataset, image_collate
 from models.FeatureStyleEncoder import FSencoder
@@ -36,7 +37,7 @@ class Embedding(nn.Module):
         self.downsample_512 = BicubicDownSample(factor=2)
         self.downsample_256 = BicubicDownSample(factor=4)
 
-    def setup_dataloader(self, images: dict[torch.Tensor, list[str]] | list[torch.Tensor], batch_size=None):
+    def setup_dataloader(self, images: Union[dict[torch.Tensor, list[str]], list[torch.Tensor]], batch_size=None):
         self.dataset = ImagesDataset(images)
         self.dataloader = DataLoader(self.dataset, collate_fn=image_collate, shuffle=False,
                                      batch_size=batch_size or self.opts.batch_size)
