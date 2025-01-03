@@ -61,7 +61,7 @@ class HairFast:
         final_image = self.blend.blend_images(align_shape, align_color, name_to_embed, **kwargs)
         return final_image
 
-     def swap(self, Union[face_img: TImage, TPath], Union[shape_img: TImage, TPath], Union[color_img: TImage, TPath],
+    def swap(self, Union[face_img: TImage, TPath], Union[shape_img: TImage, TPath], Union[color_img: TImage, TPath],
              benchmark=False, align=False, seed=None, exp_name=None, **kwargs) -> TReturn:
         """
         Run HairFast on the input images to transfer hair shape and color to the desired images.
