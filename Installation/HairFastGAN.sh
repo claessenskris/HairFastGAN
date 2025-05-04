@@ -1,5 +1,4 @@
 #!/bin/bash
-gcsfuse --implicit-dirs image_generator_request /pascalem/_pyt/HairFastGAN/data
 
 cd /pascalem
 
