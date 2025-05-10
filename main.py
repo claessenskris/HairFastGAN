@@ -35,7 +35,7 @@ def main(model_args, args):
 
         if isinstance(exp, str) or args.result_path is None:
             os.makedirs(args.output_dir, exist_ok=True)
-            output_image_path = args.output_dir / f'{base_name}.png'
+            output_image_path = args.output_dir / f'{base_name}.jpg'
         else:
             os.makedirs(args.result_path.parent, exist_ok=True)
             output_image_path = args.result_path
